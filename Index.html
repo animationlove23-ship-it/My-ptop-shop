@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8">
+<title>Online Shop</title>
+
+<style>
+body{
+  font-family: sans-serif;
+  background:#f2f2f2;
+  margin:0;
+  padding:0;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:15px;
+}
+h1,h2{
+  text-align:center;
+}
+.howto{
+  background:#fff;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:20px;
+}
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:15px;
+}
+.product{
+  background:#fff;
+  padding:15px;
+  border-radius:10px;
+  text-align:center;
+}
+.product button{
+  padding:10px 20px;
+  font-size:16px;
+  background:black;
+  color:white;
+  border:none;
+  border-radius:8px;
+}
+.payment, .form{
+  background:#fff;
+  padding:15px;
+  border-radius:10px;
+  margin-top:20px;
+}
+input{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  font-size:16px;
+}
+#orderBtn{
+  width:100%;
+  padding:15px;
+  font-size:20px;
+  background:gray;
+  color:white;
+  border:none;
+  border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>🛒 Online Shop</h1>
+
+<div class="howto">
+<h2>📌 Web ဘယ်လိုသုံးရမလဲ</h2>
+<p>
+1. Product ရွေးပါ<br>
+2. WavePay နဲ့ ငွေလွှဲပါ<br>
+3. ပြေစာ Screenshot တင်ပါ<br>
+4. Name / Phone / ID (၆လုံး) ထည့်ပါ<br>
+5. Order ခလုတ် နှိပ်ပါ
+</p>
+</div>
+
+<h2>📦 Products</h2>
+<div class="products">
+  <div class="product">
+    <h3>Product 1</h3>
+    <p>💰 10,000 MMK</p>
+    <button onclick="selectProduct('Product 1 - 10,000 MMK')">Order</button>
+  </div>
+  <div class="product">
+    <h3>Product 2</h3>
+    <p>💰 15,000 MMK</p>
+    <button onclick="selectProduct('Product 2 - 15,000 MMK')">Order</button>
+  </div>
+  <div class="product">
+    <h3>Product 3</h3>
+    <p>💰 20,000 MMK</p>
+    <button onclick="selectProduct('Product 3 - 20,000 MMK')">Order</button>
+  </div>
+  <div class="product">
+    <h3>Product 4</h3>
+    <p>💰 25,000 MMK</p>
+    <button onclick="selectProduct('Product 4 - 25,000 MMK')">Order</button>
+  </div>
+  <div class="product">
+    <h3>Product 5</h3>
+    <p>💰 30,000 MMK</p>
+    <button onclick="selectProduct('Product 5 - 30,000 MMK')">Order</button>
+  </div>
+</div>
+
+<div class="payment">
+<h2>💸 WavePay Payment</h2>
+<p>အောက်က QR ကို scan လုပ်ပြီး ငွေလွှဲပါ</p>
+<img src="waveqr.png" style="width:100%;max-width:300px;">
+</div>
+
+<div class="form">
+<h2>📝 Order Form</h2>
+
+<input type="text" id="name" placeholder="Customer Name">
+<input type="tel" id="phone" placeholder="Phone Number">
+<input type="number" id="id6" placeholder="ID (6 digits)">
+<input type="file" id="receipt">
+
+<p><b>Selected Product:</b> <span id="selected">None</span></p>
+
+<button id="orderBtn" disabled onclick="order()">Order</button>
+</div>
+
+</div>
+
+<script>
+let selectedProduct="";
+
+function selectProduct(p){
+  selectedProduct=p;
+  document.getElementById("selected").innerText=p;
+}
+
+document.getElementById("id6").addEventListener("input",function(){
+  if(this.value.length===6){
+    document.getElementById("orderBtn").disabled=false;
+    document.getElementById("orderBtn").style.background="black";
+  }else{
+    document.getElementById("orderBtn").disabled=true;
+    document.getElementById("orderBtn").style.background="gray";
+  }
+});
+
+function order(){
+  alert("Order Ready!\n\n" +
+  selectedProduct + "\n" +
+  "နောက်တစ်ဆင့်မှာ Telegram Bot ချိတ်ပါမယ်");
+  
+  // 👉 နောက်ဆုံးအဆင့်မှာ Telegram Bot code ထည့်မယ်
+}
+</script>
+
+</body>
+</html>
